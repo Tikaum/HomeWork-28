@@ -10,5 +10,12 @@ namespace Wrappers.SeleniumFramework
         {
             Blur();
         }
+        public void ClickIfEnabled()
+        {
+            if (IsEnabled())
+            {
+                ClickElement();
+            }
+        }
     }
 }

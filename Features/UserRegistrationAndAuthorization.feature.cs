@@ -29,7 +29,7 @@ namespace HomeWork_28RnR.Features
         
         private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "RnRStepDefinitions", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
         
-#line 1 "RegNewUser.feature"
+#line 1 "UserRegistrationAndAuthorization.feature"
 #line hidden
         
         [global::NUnit.Framework.OneTimeSetUpAttribute()]
@@ -105,7 +105,7 @@ namespace HomeWork_28RnR.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/RegNewUser.feature.ndjson", 4);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/UserRegistrationAndAuthorization.feature.ndjson", 4);
         }
         
         [global::NUnit.Framework.TestAttribute()]
