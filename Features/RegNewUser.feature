@@ -6,4 +6,6 @@ Scenario: Registration of new user
 	And Create  a user with a random login and password
 	When I am entering the new user's details
 	Then Registration button is available
+	When Click Registration button
+	Then User transit on next page
 	

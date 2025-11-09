@@ -142,6 +142,12 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line 8
  await testRunner.ThenAsync("Registration button is available", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
+#line 9
+ await testRunner.WhenAsync("Click Registration button", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 10
+ await testRunner.ThenAsync("User transit on next page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
             }
             await this.ScenarioCleanupAsync();
         }

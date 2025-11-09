@@ -1,7 +1,9 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using Reqnroll;
+using SeleniumExtras.WaitHelpers;
 using Wrappers.Builders;
 using Wrappers.Page;
 using Wrappers.Page.Forms;
@@ -33,7 +35,7 @@ namespace HomeWork_28RnR.StepDefinitions
         public InfoElement CartNotEmptyButton => new InfoElement(CartNotEmptyButtonLocator);
         public InputElement RegFieldUserInput => new InputElement(RegFieldUserLocator);
         public InputElement PasswordFieldUserInput => new InputElement(PasswordFieldUserLocator);
-        public InputElement RegButtonInput => new InputElement(RegButtonLocator);
+        public ButtonElement RegButton => new ButtonElement(RegButtonLocator);
 
         
 
@@ -65,18 +67,40 @@ namespace HomeWork_28RnR.StepDefinitions
 
         [When("I am entering the new user's details")]
         public void WhenIAmEnteringTheNewUsersDetails()
-        {
+        {            
+            int attempts = 0; 
             var userName = _scenarioContext.Get<string>("randomUserName");
             var userPassword = _scenarioContext.Get<string>("randomUserPassword");
-            RegFieldUserInput.SetUpText(userName);
+            RegFieldUserInput.SetUpText(userName);            
             PasswordFieldUserInput.SetUpText(userPassword);
-            RegFieldUserInput.Blur();
+            bool StateRegButton = RegButton.IsEnabled();                 
+            while (!StateRegButton && attempts < 5)
+            {
+                RegFieldUserInput.Blur();
+                PasswordFieldUserInput.Blur();
+                StateRegButton = RegButton.IsEnabled();
+                attempts++;
+            }                         
         }
+
+        [When("Click Registration button")]
+        public void WhenClickRegistrationButton()
+        {
+            RegButton.ClickIfEnabled();
+        }
+
+        [Then("User transit on next page")]
+        public void ThenUserTransitOnNextPage()
+        {
+            bool IsTransitNextPage = ShopPageButton.IsElementDisplayed();
+            Assert.That(IsTransitNextPage, Is.True, "Registration failed, transition to the next page did not occur");
+        }
+
 
         [Then("Registration button is available")]
         public void ThenRegistrationButtonIsUnavailable()
         {
-            bool IsRegButtonEnable = RegButtonInput.IsEnabled();
+            bool IsRegButtonEnable = RegButton.IsEnabled();
             Assert.That(IsRegButtonEnable, Is.True, "Registration failed, the Registration button is unavailable");
         }
 
