@@ -1,4 +1,5 @@
-﻿Feature: RnRStepDefinitions
+﻿Feature: UserRegistrationAndAuthorization
+
 
 @tag1
 Scenario: Registration of new user

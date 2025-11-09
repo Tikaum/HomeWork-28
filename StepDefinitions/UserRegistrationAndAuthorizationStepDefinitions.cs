@@ -1,21 +1,14 @@
 ﻿using HomeWork_28RnR.Page;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
 using Reqnroll;
-using SeleniumExtras.WaitHelpers;
-using Wrappers.Builders;
-using Wrappers.Page;
 using Wrappers.Page.Forms;
-using Wrappers.SeleniumFramework;
 using Wrappers.Utils;
-using static Microsoft.ApplicationInsights.MetricDimensionNames.TelemetryContext;
 
 namespace HomeWork_28RnR.StepDefinitions
 {
     [Binding]
-    public class RnRStepDefinitions
+    public class UserRegistrationAndAuthorizationStepDefinitions
     {
         public IWebDriver driver = BrowserUtils.Driver;
 
@@ -26,7 +19,7 @@ namespace HomeWork_28RnR.StepDefinitions
         MyAccountPage myAccountPage = new MyAccountPage();
         LoginForm loginForm = new LoginForm();        
 
-        public RnRStepDefinitions(ScenarioContext scenarioContext)
+        public UserRegistrationAndAuthorizationStepDefinitions(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
         }
