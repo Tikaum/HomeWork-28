@@ -1,8 +1,9 @@
 ﻿using OpenQA.Selenium;
+using Wrappers.Page;
 using Wrappers.SeleniumFramework;
 using Wrappers.Utils;
 
-namespace Wrappers.Page
+namespace HomeWork_28RnR.Page
 {
     public abstract class BasePage
     {

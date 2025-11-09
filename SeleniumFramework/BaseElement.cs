@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System.Xml.Linq;
 using Wrappers.Utils;
 
 namespace Wrappers.SeleniumFramework
@@ -44,6 +45,11 @@ namespace Wrappers.SeleniumFramework
         {
             Element.Clear();
             Element.SendKeys(text);
+        }
+
+        public void Blur()
+        {
+            Element.SendKeys(Keys.Tab);
         }
 
         public void SetUpTextWithOutClear(string text)

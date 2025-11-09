@@ -29,7 +29,7 @@ namespace Wrappers.Utils
                 "--window-size=1280,1024",
                 "--disable-popup-blocking");
             var driver = new ChromeDriver(options);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
             return driver;
         }
 
