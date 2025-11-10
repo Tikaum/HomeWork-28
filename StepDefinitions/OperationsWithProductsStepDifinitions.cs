@@ -24,6 +24,7 @@ namespace HomeWork_28RnR.StepDefinitions
         CartPage cartPage = new CartPage();
         StartPage startPage = new StartPage();
         ShopPage shopPage = new ShopPage();
+        OrderForm orderForm = new OrderForm();
 
         public OperationsWithProductsStepDifinitions(ScenarioContext scenarioContext)
         {
@@ -63,7 +64,18 @@ namespace HomeWork_28RnR.StepDefinitions
         {
             shopPage.GetPriceOfItemInShop(productName, out string productPrice);                    
             _scenarioContext.Set(productPrice, "ProductPriceOnShopPage");
+        }        
+
+        [Given("Go to the cart page with added product {string}")]
+        public void GivenGoToTheCartPageWithAddedProduct(string productName)
+        {
+            //_scenarioContext.Set(productName, "ProductNameOnShopPage");
+            //startPage.GoToShopPage();
+            //shopPage.GetPriceOfItemInShop(productName, out string productPrice);
+            //_scenarioContext.Set(productPrice, "ProductPriceOnShopPage");
+            shopPage.GoToCart();
         }
+
 
         [When("Go to the cart page")]
         public void WhenGoToTheCartPage()
@@ -71,13 +83,18 @@ namespace HomeWork_28RnR.StepDefinitions
             shopPage.GoToCart();
         }
 
+        [When("Click on the button to checkout the added product")]
+        public void WhenClickOnTheButtonToCheckoutTheAddedProduct()
+        {
+            cartPage.PurchaseItems();
+        }
+
+
         [Then("Check the name and price of the product added to cart")]
         public void ThenCheckTheNameAndPriceOfTheProductAddedToCart()
         {
             cartPage.GetPriceOfProductInCart(out string productPriceOnCartPage)
-                .GetNameOfProductInCart(out string productNameOnCartPage);
-            //_scenarioContext.Set(productPriceOnCartPage, "ProductPriceOnCartPage");
-            //_scenarioContext.Set(productNameOnCartPage, "ProductNameOnCartPage");
+                .GetNameOfProductInCart(out string productNameOnCartPage);            
             Assert.Multiple(() =>
             {
                 Assert.That(_scenarioContext.Get<string>("ProductNameOnShopPage"),
@@ -87,6 +104,19 @@ namespace HomeWork_28RnR.StepDefinitions
             });
         }
 
+        [Then("Check the name and price of the product in order")]
+        public void ThenCheckTheNameAndPriceOfTheProductInOrder()
+        {
+            orderForm.GetNameOfProductInOrder(out string productNameInOrderPage)
+                .GetPriceOfProductInOrder(out string productPriceInOrderPage);
+            Assert.Multiple(() =>
+            {
+                Assert.That(productNameInOrderPage, Does.Contain(_scenarioContext.Get<string>("ProductNameOnShopPage")), "The product name in order do not match");
+                Assert.That((_scenarioContext.Get<string>("ProductPriceOnShopPage")), Is.EqualTo(productPriceInOrderPage), "The price in order of the product do not match");
+            });
+        }
+//And Click on the button to checkout the added product
+//And Fill in the payment details (text data "", numerical data "")
 
     }
 }

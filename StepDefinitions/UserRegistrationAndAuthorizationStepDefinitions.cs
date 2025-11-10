@@ -97,10 +97,10 @@ namespace HomeWork_28RnR.StepDefinitions
             Assert.That(IsRegButtonEnable, Is.True, "Registration failed, the Registration button is unavailable");
         }
 
-        //[AfterScenario]
-        //public void AfterScenario()
-        //{
-        //    BrowserUtils.Quit();
-        //}
+        [AfterScenario]
+        public void AfterScenario()
+        {
+            BrowserUtils.Quit();
+        }
     }
 }
