@@ -14,8 +14,16 @@ namespace Wrappers.Page
         GeneratorUtils randomGenerator = new GeneratorUtils();
         RegistrationForm registrationForm = new RegistrationForm();
 
-        private readonly By CartNotEmptyButtonLocator = By.CssSelector("a[title='View your shopping cart']");        
+        public readonly By CartNotEmptyButtonLocator = By.CssSelector("a[title='View your shopping cart']");
+        private By ShopPageLocator = By.XPath("//a[text()='Shop']");
         InfoElement CartNotEmptyButton => new InfoElement(CartNotEmptyButtonLocator);
+        ButtonElement ShopPageButton => new ButtonElement(ShopPageLocator);
+
+        public ShopPage GoToShopPage()
+        {
+            driver.FindElement(ShopPageLocator).Click();
+            return new ShopPage();
+        }
 
         public StartPage OpenPage()
         {

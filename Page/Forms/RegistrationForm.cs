@@ -22,15 +22,6 @@ namespace Wrappers.Page.Forms
             PasswordFieldUserInput.SetUpText(user.Password);
             bool IsRegButtonEnable = RegButtonInput.IsEnabled();            
             return IsRegButtonEnable;
-        }
-
-        public bool RegistrationUserSuccess()
-        {                        
-            if (ShopPageButton.IsElementDisplayed())
-            {
-                return true;
-            }
-            else return false;
-        }
+        }        
     }
 }
