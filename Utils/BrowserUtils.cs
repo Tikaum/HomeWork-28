@@ -26,8 +26,7 @@ namespace Wrappers.Utils
                 "--no-sandbox",
                 "--disable-dev-shm-usage",
                 "--disable-gpu",
-                "--window-size=1280,1024");
-                //"--disable-popup-blocking");
+                "--window-size=1280,1024");                
             var driver = new ChromeDriver(options);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
             return driver;
