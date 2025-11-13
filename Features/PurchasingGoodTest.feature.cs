@@ -103,6 +103,22 @@ namespace HomeWork_28RnR.Features
             await testRunner.CollectScenarioErrorsAsync();
         }
         
+        public virtual async global::System.Threading.Tasks.Task FeatureBackgroundAsync()
+        {
+#line 3
+#line hidden
+#line 4
+await testRunner.GivenAsync("Login as an authorized user with login \"test_user12345@gmail.com\" and password \"v" +
+                    "szef#@$%#54456456\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 5
+ await testRunner.AndAsync("Clear shopping cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 6
+ await testRunner.AndAsync("Go to the shop page", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+        }
+        
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
             return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/PurchasingGoodTest.feature.ndjson", 5);
@@ -120,7 +136,7 @@ namespace HomeWork_28RnR.Features
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Check the name and price of the product added to cart", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 4
+#line 9
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -130,23 +146,16 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 5
- await testRunner.GivenAsync("Login as an authorized user with login \"test_user12345@gmail.com\" and password \"v" +
-                        "szef#@$%#54456456\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 6
- await testRunner.AndAsync("Clear shopping cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 7
- await testRunner.AndAsync("Go to the shop page", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 8
- await testRunner.AndAsync("Add product \"HTML5 WebApp Develpment\" to cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 9
- await testRunner.WhenAsync("Go to the cart page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line 3
+await this.FeatureBackgroundAsync();
 #line hidden
 #line 10
+ await testRunner.AndAsync("Add product \"HTML5 WebApp Develpment\" to cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 11
+ await testRunner.WhenAsync("Go to the cart page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 12
  await testRunner.ThenAsync("Check the name and price of the product added to cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -163,7 +172,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Check the name and price of the added product in order", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 12
+#line 14
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -173,26 +182,19 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 13
- await testRunner.GivenAsync("Login as an authorized user with login \"test_user12345@gmail.com\" and password \"v" +
-                        "szef#@$%#54456456\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 14
- await testRunner.AndAsync("Clear shopping cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 3
+await this.FeatureBackgroundAsync();
 #line hidden
 #line 15
- await testRunner.AndAsync("Go to the shop page", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 16
  await testRunner.AndAsync("Add product \"Selenium Ruby\" to cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 17
+#line 16
  await testRunner.AndAsync("Go to the cart page with added product", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 18
+#line 17
  await testRunner.WhenAsync("Click on the button to checkout the added product", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 19
+#line 18
  await testRunner.ThenAsync("Check the name and price of the product in order", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -209,7 +211,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("FillingOut order and check userdata and productdata in order received info", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 21
+#line 20
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -219,30 +221,23 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 22
- await testRunner.GivenAsync("Login as an authorized user with login \"test_user12345@gmail.com\" and password \"v" +
-                        "szef#@$%#54456456\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line 3
+await this.FeatureBackgroundAsync();
 #line hidden
-#line 23
- await testRunner.AndAsync("Clear shopping cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 24
- await testRunner.AndAsync("Go to the shop page", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 25
+#line 21
  await testRunner.AndAsync("Add product \"HTML5 Forms\" to cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 26
+#line 22
  await testRunner.AndAsync("Proceeded to checkout", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 27
+#line 23
  await testRunner.WhenAsync("Filled in the payment details with text \"Abrakadabra\" in text fields and digits \"" +
                         "123456\" numeric fields", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 28
+#line 24
  await testRunner.AndAsync("Click on the button to placed an order", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 29
+#line 25
  await testRunner.ThenAsync("Check the confirmation text, name and price of the product, e-mail and telephone " +
                         "of the user in order received info", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden

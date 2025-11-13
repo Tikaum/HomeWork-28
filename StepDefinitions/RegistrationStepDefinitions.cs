@@ -1,6 +1,5 @@
 ﻿using HomeWork_28RnR.Page;
 using NUnit.Framework;
-using OpenQA.Selenium;
 using Reqnroll;
 using Wrappers.Page.Forms;
 using Wrappers.Utils;
@@ -8,18 +7,15 @@ using Wrappers.Utils;
 namespace HomeWork_28RnR.StepDefinitions
 {
     [Binding]
-    public class UserRegistrationAndAuthorizationStepDefinitions
+    public class RegistrationStepDefinitions : BaseStepDefinitions
     {
-        public IWebDriver driver = BrowserUtils.Driver;
-
         private readonly ScenarioContext _scenarioContext;
         
         GeneratorUtils randomGenerator = new GeneratorUtils();
         RegistrationForm registrationForm = new RegistrationForm();
-        MyAccountPage myAccountPage = new MyAccountPage();
-        LoginForm loginForm = new LoginForm();        
+        MyAccountPage myAccountPage = new MyAccountPage();        
 
-        public UserRegistrationAndAuthorizationStepDefinitions(ScenarioContext scenarioContext)
+        public RegistrationStepDefinitions(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
         }
@@ -28,25 +24,7 @@ namespace HomeWork_28RnR.StepDefinitions
         public void GivenIOpenStartPage()
         {
             BrowserUtils.OpenPage("https://practice.automationtesting.in/my-account/");
-        }
-
-        [Given("Enter login {string} in the fields to authorization a user")]
-        public void GivenEnterLoginInTheFieldsToAuthorizationAUser(string login)
-        {
-            loginForm.LoginFieldUserInput.SetUpText(login);
-        }
-
-        [Given("Enter password {string} in the fields to authorization a user")]
-        public void GivenEnterPasswordInTheFieldsToAuthorizationAUser(string password)
-        {
-            loginForm.PasswordFieldUserInput.SetUpText(password);
-        }
-
-        [When("Click on the authorization confirmation button")]
-        public void WhenClickOnTheAuthorizationConfirmationButton()
-        {
-            loginForm.LoginButtonInput.ClickElement();
-        }
+        }        
 
         [Given("Сreate a random login and password")]
         public void GivenСreateARandomLoginAndPassword()
@@ -95,12 +73,6 @@ namespace HomeWork_28RnR.StepDefinitions
         {
             bool IsRegButtonEnable = registrationForm.RegButtonInput.IsEnabled();
             Assert.That(IsRegButtonEnable, Is.True, "Registration failed, the Registration button is unavailable");
-        }
-
-        [AfterScenario]
-        public void AfterScenario()
-        {
-            BrowserUtils.Quit();
-        }
+        }        
     }
 }
