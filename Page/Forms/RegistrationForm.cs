@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using HomeWork_28RnR.Page;
+using HomeWork_28RnR.StepDefinitions;
+using OpenQA.Selenium;
 using Wrappers.Models;
 using Wrappers.SeleniumFramework;
 
@@ -20,15 +22,6 @@ namespace Wrappers.Page.Forms
             PasswordFieldUserInput.SetUpText(user.Password);
             bool IsRegButtonEnable = RegButtonInput.IsEnabled();            
             return IsRegButtonEnable;
-        }
-
-        public bool RegistrationUserSuccess()
-        {                        
-            if (ShopPageButton.IsElementDisplayed())
-            {
-                return true;
-            }
-            else return false;
-        }
+        }        
     }
 }
